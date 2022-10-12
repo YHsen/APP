@@ -4,7 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.QiMi</groupId>
     <artifactId>APP</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>App-auth</module>
+    </modules>
     <name>APP</name>
     <description>Demo project for Spring Boot</description>
 
