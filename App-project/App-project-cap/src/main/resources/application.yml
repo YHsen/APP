@@ -3,16 +3,34 @@ server:
 
 spring:
   application:
-    name: @artifactId@
+    name: App-project-cap
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  redis:
+    host: localhost
+  data:
+#  rabbitmq:
+#    host: localhost #rabbitmq依赖
+# Mybatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  global-config:
+    id-type: 1  #0:数据库ID自增   1:用户输入id
+    db-column-underline: false
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启延时加载，否则按需加载属性
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
   cloud:
     nacos:
       discovery:
-        server-addr: ${NACOS_HOST:pig-register}:${NACOS_PORT:8848}
-      config:
-        server-addr: ${spring.cloud.nacos.discovery.server-addr}
-  config:
-    import:
-      - nacos:application-@profiles.active@.yml
-      - nacos:${spring.application.name}-@profiles.active@.yml
-
+        server-addr: 127.0.0.1:8848
+  instance:
+    prefer-ip-address: true
 
