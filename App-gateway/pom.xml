@@ -3,17 +3,39 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>APP</artifactId>
-        <groupId>com.QiMi</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.8.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>App-gateway</artifactId>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
     </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>2.1.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-commons</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
